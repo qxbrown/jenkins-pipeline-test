@@ -8,7 +8,9 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'npm install'
+        dir('jenkins-test') {
+          sh 'npm install'
+        }
       }
     }
    stage('Lint') {
