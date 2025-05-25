@@ -2,28 +2,25 @@ pipeline {
   agent any
 
   tools {
-    nodejs "nodejs"  // You’ll need to define this tool in Jenkins settings
+    nodejs "nodejs"
   }
 
   stages {
     stage('Install') {
       steps {
-        sh 'npm ci'  // cleaner install
+        sh 'npm ci'
       }
     }
-
     stage('Lint') {
       steps {
         sh 'npm run lint'
       }
     }
-
     stage('Test') {
       steps {
         sh 'npm test'
       }
     }
-
     stage('Build') {
       steps {
         sh 'npm run build'
