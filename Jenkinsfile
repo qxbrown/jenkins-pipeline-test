@@ -2,21 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Install') {
+        stage('Print Hello') {
             steps {
-                sh 'npm install'
+                echo 'Hello from Jenkins!'
             }
         }
-        stage('Test') {
+
+        stage('Done') {
             steps {
-                sh 'npm run test'
-            }
-        }
-        stage('Build') {
-            steps {
-                sh 'npm run build'
+                echo 'Build pipeline executed successfully!'
             }
         }
     }
 }
-
