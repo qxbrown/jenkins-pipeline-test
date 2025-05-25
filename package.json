@@ -5,10 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"No tests yet\" && exit 0"
+    "lint": "eslint .",
+    "test": "node test.js",
+    "build": "echo \"Build step placeholder\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "devDependencies": {
+    "eslint": "^8.50.0"
+  }
 }
