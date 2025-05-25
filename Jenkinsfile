@@ -21,12 +21,16 @@ pipeline {
 }
     stage('Test') {
       steps {
-        sh 'npm test'
+         dir('jenkins-test') {
+           sh 'npm test'
+        }
       }
     }
     stage('Build') {
       steps {
-        sh 'npm run build'
+         dir('jenkins-test') {
+          sh 'npm run build'
+        }
       }
     }
   }
