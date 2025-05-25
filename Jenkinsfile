@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        corn {'H/1 * * * *'}
+        corn('H/1 * * * *')
     }
 
     stages {
