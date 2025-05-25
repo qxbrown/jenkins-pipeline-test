@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        corn {'H/1 * * * *'}
+    }
+
     stages {
         stage('Install') {
             steps {
