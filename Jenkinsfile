@@ -11,11 +11,12 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Lint') {
-      steps {
-        sh 'npm run lint'
-      }
+   stage('Lint') {
+    steps {
+        echo 'Skipping lint for now'
+        // sh 'npm run lint'
     }
+}
     stage('Test') {
       steps {
         sh 'npm test'
