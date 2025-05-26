@@ -1,37 +1,37 @@
 pipeline {
   agent any
-
   tools {
-    nodejs "nodejs"
+    nodejs 'nodejs'
   }
-
   stages {
-    stage('Install') {
-      steps {
-        dir('jenkins-test') {
-          sh 'npm install'
-        }
+    stage('install') {
+      step {
+        sh 'npm install'
       }
     }
-   stage('Lint') {
-    steps {
-        echo 'Skipping lint for now'
-        // sh 'npm run lint'
-    }
-}
-    stage('Test') {
-      steps {
-         dir('jenkins-test') {
-           sh 'npm test'
-        }
+
+    stage('test') {
+      step{
+        sh 'npm test'
       }
     }
-    stage('Build') {
-      steps {
-         dir('jenkins-test') {
-          sh 'npm run build'
-        }
+
+    stage('build') {
+      step{
+        sh 'npm build'
       }
+    }
+  }
+  post {
+    success {
+      mail to: 'riwaj022@gmail.com',
+      subject: "Build Success"
+      body: "pipeline succeeded!"
+    }
+    failure {
+      mail to: 'riwaj022@gmail.com',
+      subject: "Build Failed"
+      body: "Something went wrong!"
     }
   }
 }
