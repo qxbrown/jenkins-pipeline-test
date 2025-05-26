@@ -22,7 +22,7 @@ pipeline {
     stage('build') {
       steps {
          dir('next_node_jenkins') {
-           sh 'npm build'
+           sh 'npm run build'
        }
     }}
   }
