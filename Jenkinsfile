@@ -6,14 +6,14 @@ pipeline {
   stages {
     stage('install') {
       steps{
-        dir('jenkins-test') {
+        dir('next_node_jenkins') {
           sh 'npm install'
          }
        }
 }
     stage('test') {
       steps {
-                dir('jenkins-test') {
+                dir('next_node_jenkins') {
 
         sh 'npm test'
 }      }
@@ -21,7 +21,7 @@ pipeline {
 
     stage('build') {
       steps {
-         dir('jenkins-test') {
+         dir('next_node_jenkins') {
            sh 'npm build'
        }
     }}
