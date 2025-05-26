@@ -5,22 +5,26 @@ pipeline {
   }
   stages {
     stage('install') {
-      steps {
-        sh 'npm install'
-      }
-    }
+      steps{
+        dir('jenkins-test') {
+          sh 'npm install'
+         }
+       }
 
     stage('test') {
       steps {
+                dir('jenkins-test') {
+
         sh 'npm test'
-      }
+}      }
     }
 
     stage('build') {
       steps {
-        sh 'npm build'
-      }
-    }
+         dir('jenkins-test') {
+           sh 'npm build'
+       }
+    }}
   }
 post {
   success {
