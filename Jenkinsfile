@@ -10,7 +10,7 @@ pipeline {
           sh 'npm install'
          }
        }
-
+}
     stage('test') {
       steps {
                 dir('jenkins-test') {
