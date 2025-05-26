@@ -26,17 +26,5 @@ pipeline {
        }
     }}
   }
-post {
-  success {
-    mail to: 'you@example.com',
-         subject: "Build Success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-         body: "Pipeline succeeded!"
-  }
-  failure {
-    mail to: 'you@example.com',
-         subject: "Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-         body: "Something went wrong."
-  }
-}
 
 }
